@@ -1,5 +1,5 @@
 pub mod bubble {
-    pub fn bubble_sort<T: Ord + Copy + Clone>(vals: &mut Vec<T>) -> &mut Vec<T> {
+    pub fn bubble_sort<T: Ord + Copy + Clone>(vals: &mut Vec<T>) -> Vec<T> {
         let mut changed = false;
 
         for i in 1..vals.len() {
@@ -15,7 +15,7 @@ pub mod bubble {
         if changed {
             bubble_sort(vals)
         } else {
-            vals
+            vals.to_vec()
         }
     }
 }
