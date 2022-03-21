@@ -5,7 +5,7 @@ use bubble::bubble::bubble_sort;
 use radix::radix::radix_sort;
 
 fn main() {
-    let vals: Vec<i64> = vec![-1, -4, 1, 5, 43, 167, 86, 43, 14, 5, 6, 7, 89, 9, 324, 23, 3, 122, 532, 2415, 1553, 2351, 1251, 56856];
+    let vals: Vec<i64> = vec![1, 5, 43, 167, 86, 43, 14, 5, 6, 7, 89, 9, 324, 23, 3, 122, 632, 2415, 1553, 2351, 1251, 56856];
     let bubble = bubble_sort(&mut vals.clone());
     let radix = radix_sort(&mut vals.clone(), 1);
 
