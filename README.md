@@ -2,6 +2,6 @@
 
 ## Finished
 - [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)
-    - [](./assets/bubble.png)
+    - Steps visualization ![](./assets/bubble.png)
 - [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort) (Need implementation for negative numbers)
-    - [](./assets/radix.png)
+    - Steps visualization ![](./assets/radix.png)
