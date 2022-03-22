@@ -1,21 +1,24 @@
 pub mod bubble {
-    pub fn bubble_sort<T: Ord + Copy + Clone>(vals: &mut Vec<T>) -> Vec<T> {
+    pub fn bubble_sort<T: Ord + Copy + Clone + std::fmt::Debug + std::fmt::Display>(
+        vals: Vec<T>,
+    ) -> Vec<T> {
         let mut changed = false;
+        let mut new_vals: Vec<T> = vals.clone();
 
-        for i in 1..vals.len() {
-            let current = vals[i];
-            let before = vals[i - 1];
+        for i in 1..new_vals.len() {
+            let current = new_vals[i];
+            let before = new_vals[i - 1];
             if current > before {
-                vals[i - 1] = current;
-                vals[i] = before;
-                changed = true
+                new_vals[i - 1] = current;
+                new_vals[i] = before;
+                changed = true;
             }
         }
 
         if changed {
-            bubble_sort(vals)
+            bubble_sort(new_vals.clone())
         } else {
-            vals.to_vec()
+            new_vals
         }
     }
 }

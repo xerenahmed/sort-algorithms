@@ -5,27 +5,27 @@ pub mod radix {
     use digits::{BaseCustom, Digits};
 
     pub fn radix_sort<T: Ord + Copy + Clone + std::fmt::Display + std::fmt::Debug>(
-        vals: &mut Vec<T>,
+        vals: Vec<T>,
         current_digit: usize,
     ) -> Vec<T> {
         let mut new_vec: Vec<T> = vec![];
         let mut max_digits = 0;
 
         for i in (0..=9).rev() {
-            for j in vals.iter() {
+            for j in vals.clone().into_iter() {
                 let (d, digits_len) = digit(j, current_digit);
                 if max_digits < digits_len {
                     max_digits = digits_len;
                 }
 
                 if d == i as u64 {
-                    new_vec.push(*j)
+                    new_vec.push(j)
                 }
             }
         }
 
         if max_digits > current_digit {
-            radix_sort(&mut new_vec, current_digit + 1)
+            radix_sort(new_vec, current_digit + 1)
         } else {
             new_vec
         }
